@@ -11,13 +11,13 @@ The Twitter Feed plugin makes including and linking to tweets on multiple Twitte
 
 Admin Control Panel
 
-All the main functions of control such as connecting to a Twitter account and storing information on the tweets/blogs, can be achieved through the "Twitter Control" GUI in the Wordpress admin panel.
+The control functions such as connecting to a Twitter account and storing information on the tweets/blogs, can be accessed through the "Twitter Control" GUI in the Wordpress admin panel.
 
 Any changes in the currently active Twitter account tweets can be immediately updated by clicking on the "Update Blogs" button.
 
 Order, Prioritisation and PM Filtering
 
-The application will display the latest tweet from each of the active accounts and then prioritise those latest tweets in date order. So the newest tweet across all of the accounts will always be at the top. It is also possible to switch between allowing/disallowing PM (Private Message) tweets to be included in the display. 
+The application will display the latest tweet from all of the active accounts and then displays those latest tweets in date order. So the newest tweet across all of the accounts will always be shown first. It is also possible to switch between allowing/disallowing PM (Private Message) tweets to be included in the display. 
 
 Separate All Tweets Page
 
