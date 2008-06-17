@@ -80,7 +80,7 @@ No, the plugin has been designed to automatically save the data cache to the Wor
 
 All files, both PHP and CSS, can be found within the main extracted plugin folder.
 
-Within the folder "twitter-feed" you should find the following 11 files:-
+Within the folder "twitter-feed" you should find the following 13 files:-
 
 1. twitterScript.php - the file that will interface with the Twitter API (required)
 2. twitterPlugin.php - the display file that Wordpress will interface with (required)
@@ -91,7 +91,9 @@ Within the folder "twitter-feed" you should find the following 11 files:-
 7. arrow_up.gif - used to collapse the main application
 8. twitterImage.gif - used in the header
 9. twitterpageheader.gif - used in the header
-10. readme.txt - this information file
-11. COPYING - a copy of the license terms for this release
+10. screenshot-1.png - image of the application running on a Wordpress front page
+11. screenshot-2.png - image of the Twitter Control Panel in Wordpress
+12. readme.txt - this information file
+13. COPYING - a copy of the license terms for this release
 
 For further support or information please visit: http://community.plus.net/opensource/
