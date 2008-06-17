@@ -1,0 +1,135 @@
+#twitterSpace
+{
+	margin-top: 10px;
+	height: relative;
+	border: 1px solid #ddd;
+	background-color: #9ae4e8;
+}
+#twitterHeader
+{
+	height: 40px;
+	background-color: #9ae4e8;
+}
+#twitterImage img.main
+{
+	margin-left: 10px;
+	margin-top: 10px;
+}
+.builtByArea
+{
+	color: #666 !important;
+	font-size: 10px !important;
+	text-align: center;
+	margin-bottom: 10px;
+}
+.screenName
+{
+	font-style: italic !important;
+}
+.tweet
+{
+	/* T R B L */
+	padding: 10px 10px 10px 10px;
+	font-family: sans-serif;
+	font-size: 11px;
+	font-style: normal;
+	border: 1px solid #ddd;
+	color: #444;
+}
+.dateText
+{
+	font-size: 10px !important;
+	text-align: center;
+	color: #999;
+}
+.tweetPic img
+{
+	margin-right: 10px;
+	margin-bottom: 5px;
+	float: left;
+	width: 40px;
+	height: 40px;
+	border: 1px solid #ddd;
+	padding: 3px;
+}
+#toggleLink img
+{
+	
+	float: right;
+}
+#toggleSpace
+{
+        cursor: pointer;
+}
+.tweetSpace
+{
+	background-color: #FFFFFF;
+	margin: 10px 10px 10px 10px;
+}
+a.toggleLink:link, a.toggleLink:visited
+{
+	color: #264675;
+	font-size: small;
+	margin-left: 130px;
+}
+.screenName a:link, .screenName a:visited
+{
+	color: #666;
+	font-size: 11px;
+	font-style: normal;
+}
+.usernametable
+{
+	margin: 15px 0 0 0;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+}
+
+.otheroptionstable
+{
+	margin: 15px 0 0 0;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+}
+
+.otheroptionstable tr th
+{
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	padding: 5px;
+	background-color: #efefef;
+	text-align: center !important;
+}
+
+.usernametable tr th
+{
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	padding: 5px;
+	background-color: #efefef;
+}
+
+.usernametable tr td
+{
+	border-bottom: 1px solid #ccc;
+	padding: 5px;
+}
+
+.otheroptionstable tr td
+{
+	border-bottom: 1px solid #ccc;
+	padding: 5px;
+}
+
+.usernametable tr td.twittercheck, .otheroptionstable tr td.twittercheck
+{
+	text-align: center;
+	width: 20px;
+}
+
+
+.usernametable tr td.twittername, .usernametable tr th.twittername, .otheroptionstable tr td.twittername, 
+.otheroptionstable tr th.twittername
+{
+	text-align:left;
+}
