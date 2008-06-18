@@ -35,7 +35,7 @@ function startTwitterWidget()
 {
 	if ( function_exists( 'register_sidebar_widget' ) )
 	{
-		function widget_twitterblog( $args )
+		function widget_twitterfeed( $args )
 		{
 			$before_widget = '';
 			$before_title = '';
@@ -62,14 +62,14 @@ function startTwitterWidget()
 				}
 
 				echo $before_widget;
-				echo $before_title. 'Twitter Blog' . $after_title;
+				echo $before_title. 'Twitter Feed' . $after_title;
 
 				displayTwitterPlugin();
 
 				echo $after_widget;
 			}
 		}
-		register_sidebar_widget( 'Twitter Blog', 'widget_twitterblog' );
+		register_sidebar_widget( 'Twitter Feed', 'widget_twitterfeed' );
 	}
 }
 
@@ -103,7 +103,7 @@ function displayTwitterPlugin($bolShowAllTweets = false)
 
 				<div id="twitterHeader">
 					<span id="twitterImage">
-						<img class="main" src="'.get_option( 'siteurl' ).'/wp-content/plugins/twitter/twitterImage.gif"/>
+						<img class="main" src="'.get_option( 'siteurl').'/wp-content/plugins/twitter-feed/twitterImage.gif"/>
 					</span>';
 
 		$intUserDataCount = count( $arrUserData );
@@ -287,14 +287,14 @@ function twitterAddOptionPage()
 
 function includeTwitterCSS()
 {
-	echo '<link rel="stylesheet" type="text/css" href="'.get_option( 'siteurl' ).'/wp-content/plugins/twitter/twitterStyle.css"/>';
+	echo '<link rel="stylesheet" type="text/css" href="'.get_option( 'siteurl' ).'/wp-content/plugins/twitter-feed/twitterStyle.css"/>';
 }
 
 // start: jQuery function to control the expansion and collapsing of the main app window
 
 function includeTwitterComponents()
 {
-	echo '<link rel="stylesheet" type="text/css" href="'.get_option( 'siteurl' ).'/wp-content/plugins/twitter/twitterStyle.css"/>';
+	echo '<link rel="stylesheet" type="text/css" href="'.get_option( 'siteurl' ).'/wp-content/plugins/twitter-feed/twitterStyle.css"/>';
 
 	if ( is_front_page() )
 	{
@@ -305,7 +305,7 @@ function includeTwitterComponents()
 				$(".tweetSpace").hide();
 				$(".builtByArea").hide();
 				$(".viewAll").hide();
-				$("#toggleSpace").html(\'<img id="toggleLink" src="'.get_option( 'siteurl' ).'/wp-content/plugins/twitter/arrow_down.gif" alt="down" title="down"/>\');
+				$("#toggleSpace").html(\'<img id="toggleLink" src="'.get_option( 'siteurl' ).'/wp-content/plugins/twitter-feed/arrow_down.gif" alt="down" title="down"/>\');
 
 				// toggles the slickbox on clicking the noted link
 				$("#toggleLink").click(function()
@@ -315,7 +315,7 @@ function includeTwitterComponents()
 						$(".viewAll").toggle(400);
 						$(".builtByArea").toggle(400);
 						$(".tweetSpace").toggle(400);
-						$("#toggleLink").attr("src", "'.get_option( 'siteurl' ).'/wp-content/plugins/twitter/arrow_down.gif");
+						$("#toggleLink").attr("src", "'.get_option( 'siteurl' ).'/wp-content/plugins/twitter-feed/arrow_down.gif");
 						$("#toggleLink").attr("alt", "down");
 						$("#toggleLink").attr("title", "down");
 					}
@@ -324,7 +324,7 @@ function includeTwitterComponents()
 						$(".viewAll").toggle(400);
 						$(".builtByArea").toggle(400);
 						$(".tweetSpace").toggle(400);
-						$("#toggleLink").attr("src", "'.get_option( 'siteurl' ).'/wp-content/plugins/twitter/arrow_up.gif");
+						$("#toggleLink").attr("src", "'.get_option( 'siteurl' ).'/wp-content/plugins/twitter-feed/arrow_up.gif");
 						$("#toggleLink").attr("alt", "up");
 						$("#toggleLink").attr("title", "up");
 					}
