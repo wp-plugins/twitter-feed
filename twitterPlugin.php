@@ -296,6 +296,8 @@ function includeTwitterComponents()
 {
 	echo '<link rel="stylesheet" type="text/css" href="'.get_option( 'siteurl' ).'/wp-content/plugins/twitter-feed/twitterStyle.css"/>';
 
+	echo '<script src="'.get_option( 'siteurl' ).'/wp-includes/js/jquery/jquery.js" type="text/javascript"></script>';
+
 	if ( is_front_page() )
 	{
 		echo '<script type="text/javascript">
@@ -432,8 +434,29 @@ function twitter_options_page()
 					}
 					else
 					{
-						$strUserIdsValue = $strUserIdsValue.','.$_POST[TWITTER_USER_IDS];
-						$strIsShow = $strIsShow.',checked';
+						$arrNamesTemp = explode( ',', $strUserIdsValue );
+
+						$bolUserIdExists = false;
+
+						foreach ( $arrNamesTemp as $strElement )
+						{
+							if ( $_POST[TWITTER_USER_IDS] == $strElement )
+							{
+								$bolUserIdExists = true;
+								break;
+							}
+
+						}
+
+						if ( false == $bolUserIdExists )
+						{
+							$strUserIdsValue = $strUserIdsValue.','.$_POST[TWITTER_USER_IDS];
+							$strIsShow = $strIsShow.',checked';
+						}
+						else
+						{
+							echo '<div id="message" class="updated fade"><p><strong>WARNING: That username already exists in the list. Please enter a unique username.</strong></p></div>';
+						}
 					}
 				}
 
@@ -487,8 +510,11 @@ function twitter_options_page()
 				update_option( TWITTER_SHOW_STATUS, $strIsShow );
 
 				// end: Save the posted values in the database
-
-				echo '<div id="message" class="updated fade"><p><strong>Info updated.</strong></p></div>';
+				
+				if ( false == $bolUserIdExists )
+				{
+					echo '<div id="message" class="updated fade"><p><strong>Info updated.</strong></p></div>';
+				}
 			}
 		}
 
