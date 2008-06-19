@@ -3,7 +3,7 @@ Contributors: PlusNet
 Tags: twitter, feed, blog, tweet, multiple
 Requires at least: 2.5.1
 Tested up to: 2.5.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 
 The Twitter Feed plugin makes including and linking to tweets on multiple Twitter accounts simple and flexible.
 
