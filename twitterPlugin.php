@@ -4,7 +4,7 @@
 Plugin Name: Twitter Feed
 Plugin URI: http://community.plus.net/opensource/twitter-wordpress/
 Description: Selects and displays the latest blog posts from Twitter for specified users.
-Version: 1.0.2
+Version: 1.0.3
 Author: PlusNet Plc - Developer Responsible: James Tuck (Web Development Team)
 Author URI: http://community.plus.net/opensource/
 */
