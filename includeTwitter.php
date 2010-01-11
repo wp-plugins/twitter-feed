@@ -9,4 +9,5 @@ define( 'TWITTER_RESTRICT_TWEETS', 'twitter_restrict_tweets' );
 define( 'TWITTER_PAGE_ID', 'twitter_page_id' );
 define( 'TWITTER_SOURCE_PATTERN_A', '!^http://s3\.amazonaws\.com/twitter_production/profile_images/.*!S' );
 define( 'TWITTER_SOURCE_PATTERN_B', '!^http://static\.twitter\.com/images/default_profile_normal\.png$!S' );
+define( 'TWITTER_SOURCE_PATTERN_C', '!^http://a[0-9].twimg.com/profile_images/.*!S' );
 ?>

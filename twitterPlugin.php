@@ -4,7 +4,7 @@
 Plugin Name: Twitter Feed
 Plugin URI: http://community.plus.net/opensource/twitter-wordpress/
 Description: Selects and displays the latest blog posts from Twitter for specified users.
-Version: 1.0.3
+Version: 1.2
 Author: PlusNet Plc - Developer Responsible: James Tuck (Web Development Team)
 Author URI: http://community.plus.net/opensource/
 */
@@ -35,7 +35,7 @@ function startTwitterWidget()
 {
 	if ( function_exists( 'register_sidebar_widget' ) )
 	{
-		function widget_twitterfeed( $args )
+		function widget_twitterblog( $args )
 		{
 			$before_widget = '';
 			$before_title = '';
@@ -62,14 +62,14 @@ function startTwitterWidget()
 				}
 
 				echo $before_widget;
-				echo $before_title. 'Twitter Feed' . $after_title;
+				echo $before_title. 'Twitter Blog' . $after_title;
 
 				displayTwitterPlugin();
 
 				echo $after_widget;
 			}
 		}
-		register_sidebar_widget( 'Twitter Feed', 'widget_twitterfeed' );
+		register_sidebar_widget( 'Twitter Blog', 'widget_twitterblog' );
 	}
 }
 
@@ -103,7 +103,7 @@ function displayTwitterPlugin($bolShowAllTweets = false)
 
 				<div id="twitterHeader">
 					<span id="twitterImage">
-						<img class="main" src="'.get_option( 'siteurl').'/wp-content/plugins/twitter-feed/twitterImage.gif"/>
+						<img class="main" src="'.get_option( 'siteurl' ).'/wp-content/plugins/twitter/twitterImage.gif"/>
 					</span>';
 
 		$intUserDataCount = count( $arrUserData );
@@ -170,7 +170,8 @@ function displayTwitterPlugin($bolShowAllTweets = false)
 			if ( ( null != $strElement['tweet'] ) && ( 'checked' == $strElement['show'] ) )
 			{
 				if ( preg_match( TWITTER_USERNAME_REGEX, $strElement['name'] ) && 
-					( preg_match( TWITTER_SOURCE_PATTERN_A, $strElement['avatar'] ) || 
+					( preg_match( TWITTER_SOURCE_PATTERN_C, $strElement['avatar'] ) || 
+					  preg_match( TWITTER_SOURCE_PATTERN_A, $strElement['avatar'] ) ||
 					  preg_match( TWITTER_SOURCE_PATTERN_B, $strElement['avatar'] )	
 					)
 				   )
@@ -214,12 +215,13 @@ function displayTwitterPlugin($bolShowAllTweets = false)
 				}
 			}
 
-			$intCount++;
 
 			if ( $intCount == $intLimitNumber )
 			{
 				break;
 			}
+
+			$intCount++;
 		}
 
 		// end: display individual blogs
@@ -243,7 +245,7 @@ function displayTwitterPlugin($bolShowAllTweets = false)
 		{
 			echo '	
 				<div class="builtByArea">
-					Created by <a href="http://community.plus.net/opensource/" title="PlusNet Broadband">PlusNet</a>
+					Created by <a href="http://community.plus.net/opensource/" title="Plusnet Broadband">Plusnet</a>
 				</div>';
 		}
 
@@ -287,48 +289,46 @@ function twitterAddOptionPage()
 
 function includeTwitterCSS()
 {
-	echo '<link rel="stylesheet" type="text/css" href="'.get_option( 'siteurl' ).'/wp-content/plugins/twitter-feed/twitterStyle.css"/>';
+	echo '<link rel="stylesheet" type="text/css" href="'.get_option( 'siteurl' ).'/wp-content/plugins/twitter/twitterStyle.css"/>';
 }
 
 // start: jQuery function to control the expansion and collapsing of the main app window
 
 function includeTwitterComponents()
 {
-	echo '<link rel="stylesheet" type="text/css" href="'.get_option( 'siteurl' ).'/wp-content/plugins/twitter-feed/twitterStyle.css"/>';
-
-	echo '<script src="'.get_option( 'siteurl' ).'/wp-includes/js/jquery/jquery.js" type="text/javascript"></script>';
+	echo '<link rel="stylesheet" type="text/css" href="'.get_option( 'siteurl' ).'/wp-content/plugins/twitter/twitterStyle.css"/>';
 
 	if ( is_front_page() )
 	{
 		echo '<script type="text/javascript">
 
-				$(document).ready(function(){
+				jQuery(document).ready(function(){
 
-				$(".tweetSpace").hide();
-				$(".builtByArea").hide();
-				$(".viewAll").hide();
-				$("#toggleSpace").html(\'<img id="toggleLink" src="'.get_option( 'siteurl' ).'/wp-content/plugins/twitter-feed/arrow_down.gif" alt="down" title="down"/>\');
+				jQuery(".tweetSpace").hide();
+				jQuery(".builtByArea").hide();
+				jQuery(".viewAll").hide();
+				jQuery("#toggleSpace").html(\'<img id="toggleLink" src="'.get_option( 'siteurl' ).'/wp-content/plugins/twitter/arrow_down.gif" alt="down" title="down"/>\');
 
 				// toggles the slickbox on clicking the noted link
-				$("#toggleLink").click(function()
+				jQuery("#toggleLink").click(function()
 				{
-					if($(".tweetSpace").is(":visible"))
+					if(jQuery(".tweetSpace").is(":visible"))
 					{
-						$(".viewAll").toggle(400);
-						$(".builtByArea").toggle(400);
-						$(".tweetSpace").toggle(400);
-						$("#toggleLink").attr("src", "'.get_option( 'siteurl' ).'/wp-content/plugins/twitter-feed/arrow_down.gif");
-						$("#toggleLink").attr("alt", "down");
-						$("#toggleLink").attr("title", "down");
+						jQuery(".viewAll").toggle(400);
+						jQuery(".builtByArea").toggle(400);
+						jQuery(".tweetSpace").toggle(400);
+						jQuery("#toggleLink").attr("src", "'.get_option( 'siteurl' ).'/wp-content/plugins/twitter/arrow_down.gif");
+						jQuery("#toggleLink").attr("alt", "down");
+						jQuery("#toggleLink").attr("title", "down");
 					}
 					else
 					{
-						$(".viewAll").toggle(400);
-						$(".builtByArea").toggle(400);
-						$(".tweetSpace").toggle(400);
-						$("#toggleLink").attr("src", "'.get_option( 'siteurl' ).'/wp-content/plugins/twitter-feed/arrow_up.gif");
-						$("#toggleLink").attr("alt", "up");
-						$("#toggleLink").attr("title", "up");
+						jQuery(".viewAll").toggle(400);
+						jQuery(".builtByArea").toggle(400);
+						jQuery(".tweetSpace").toggle(400);
+						jQuery("#toggleLink").attr("src", "'.get_option( 'siteurl' ).'/wp-content/plugins/twitter/arrow_up.gif");
+						jQuery("#toggleLink").attr("alt", "up");
+						jQuery("#toggleLink").attr("title", "up");
 					}
 					return false;
 				});
@@ -434,29 +434,8 @@ function twitter_options_page()
 					}
 					else
 					{
-						$arrNamesTemp = explode( ',', $strUserIdsValue );
-
-						$bolUserIdExists = false;
-
-						foreach ( $arrNamesTemp as $strElement )
-						{
-							if ( $_POST[TWITTER_USER_IDS] == $strElement )
-							{
-								$bolUserIdExists = true;
-								break;
-							}
-
-						}
-
-						if ( false == $bolUserIdExists )
-						{
-							$strUserIdsValue = $strUserIdsValue.','.$_POST[TWITTER_USER_IDS];
-							$strIsShow = $strIsShow.',checked';
-						}
-						else
-						{
-							echo '<div id="message" class="updated fade"><p><strong>WARNING: That username already exists in the list. Please enter a unique username.</strong></p></div>';
-						}
+						$strUserIdsValue = $strUserIdsValue.','.$_POST[TWITTER_USER_IDS];
+						$strIsShow = $strIsShow.',checked';
 					}
 				}
 
@@ -510,11 +489,8 @@ function twitter_options_page()
 				update_option( TWITTER_SHOW_STATUS, $strIsShow );
 
 				// end: Save the posted values in the database
-				
-				if ( false == $bolUserIdExists )
-				{
-					echo '<div id="message" class="updated fade"><p><strong>Info updated.</strong></p></div>';
-				}
+
+				echo '<div id="message" class="updated fade"><p><strong>Info updated.</strong></p></div>';
 			}
 		}
 
