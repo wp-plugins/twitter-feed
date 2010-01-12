@@ -5,7 +5,7 @@
 	Run Script File
 	-allows external processes (such as an automated cron entry) to run the Twitter Script file
 
-	Built by PlusNet
+	Built by Plusnet
 	http://community.plus.net/open-source/
 
 	Developer Responsible: James Tuck (Web Development Team)
